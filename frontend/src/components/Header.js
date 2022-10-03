@@ -1,7 +1,5 @@
 import React from "react";
 
-import Profile from "./Profile";
-
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -15,7 +13,7 @@ const Header = ({ user }) => {
         <Navbar.Brand as={Link} to="/">
           Tiffin App
         </Navbar.Brand>
-        <Navbar.Toggle aria-control="navbar" />
+        <Navbar.Toggle aria-controls="navbar" />
         <Navbar.Collapse id="navbar">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">
