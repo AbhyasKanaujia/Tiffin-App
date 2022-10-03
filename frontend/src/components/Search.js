@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 
-const Search = ({ searchQuery, setSearchQuery }) => {
-  const navigate = useNavigate();
+const Search = ({ setSearchQuery }) => {
+  const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchQuery) navigate(`/search/${searchQuery}`);
+    setSearchQuery(input);
   };
 
   return (
@@ -18,10 +18,10 @@ const Search = ({ searchQuery, setSearchQuery }) => {
         <Stack direction="horizontal" gap={2}>
           <Form.Control
             type="text"
-            value={searchQuery}
+            value={input}
             name="searchQuery"
             id="searchQuery"
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => setInput(e.target.value)}
           />
           <Button type="submit">Search</Button>
         </Stack>

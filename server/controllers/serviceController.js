@@ -6,6 +6,9 @@ import Service from "../models/ServiceModel.js";
 // @access  Public
 const getServices = asyncHandler(async (req, res) => {
   const query = {
+    name: req.query.q
+      ? { $regex: new RegExp(".*" + req.query.q + ".*", "i") }
+      : /.*/,
     city: req.query.city ? req.query.city : /.*/,
     state: req.query.state ? req.query.state : /.*/,
     type: req.query.type ? req.query.type : /.*/,

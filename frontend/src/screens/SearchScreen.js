@@ -19,18 +19,18 @@ const SearchScreen = () => {
   useEffect(() => {
     const filterServices = async () => {
       const response = await axios.get(
-        `/api/services?state=${filter.state}&city=${filter.city}&type=${filter.type}`
+        `/api/services?q=${searchQuery}&state=${filter.state}&city=${filter.city}&type=${filter.type}`
       );
 
       setServices(response.data);
     };
 
     filterServices();
-  }, [filter]);
+  }, [filter, searchQuery]);
 
   return (
     <Stack gap={3}>
-      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Search setSearchQuery={setSearchQuery} />
       <ServiceFilter filter={filter} setFilter={setFilter} />
       <ServiceCards services={services} />
     </Stack>
