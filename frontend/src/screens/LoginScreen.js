@@ -1,29 +1,52 @@
 import React, { useState } from "react";
+import axios from "axios";
 
+import Spinner from "react-bootstrap/Spinner";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import LoaderButton from "../components/LoaderButton";
 
-const LoginScreen = () => {
+const LoginScreen = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
+
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.post(
+      "api/auth/login",
+      { email, password },
+      config
+    );
+
+    localStorage.setItem("UserInfo", JSON.stringify(data));
+    setToken(data.token);
+
+    setLoading(false);
   };
 
   return (
     <Container>
-      <Row className="justify-content-center">
+      <Row>
         <Col sm={8} md={6} xl={4}>
           <h1>Login</h1>
-          <Form onsubmit={(e) => handleSubmit(e)}>
+          <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
               <Form.Control
-                autofocus
+                autoFocus
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -38,9 +61,7 @@ const LoginScreen = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <Button className="mb-3 w-100" type="submit">
-              Login
-            </Button>
+            <LoaderButton loading={loading}>Login</LoaderButton>
           </Form>
         </Col>
       </Row>

@@ -11,18 +11,25 @@ import LoginScreen from "./screens/LoginScreen";
 
 import user from "./data/user";
 import ProfileScreen from "./screens/ProfileScreen";
+import { useState } from "react";
 
 function App() {
+  const [token, setToken] = useState();
+   
   return (
     <div className="App d-flex flex-column min-vh-100">
       <Router>
         <Header user={user} />
-        <Routes>
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/search" element={<SearchScreen />} />
-          <Route path="/profile" element={<ProfileScreen />} />
-          <Route path="/login" element={<LoginScreen />} />
-        </Routes>
+        {token ? (
+          <Routes>
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/search" element={<SearchScreen />} />
+            <Route path="/profile" element={<ProfileScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
+          </Routes>
+        ) : (
+          <LoginScreen setToken={setToken} />
+        )}
         <Footer />
       </Router>
     </div>
