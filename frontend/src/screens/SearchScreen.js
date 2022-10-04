@@ -6,6 +6,7 @@ import ServiceFilter from "../components/ServiceFilter";
 import ServiceCards from "../components/ServiceCards";
 
 import Stack from "react-bootstrap/Stack";
+import Container from "react-bootstrap/Container";
 
 const SearchScreen = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -29,11 +30,13 @@ const SearchScreen = () => {
   }, [filter, searchQuery]);
 
   return (
-    <Stack gap={3}>
-      <Search setSearchQuery={setSearchQuery} />
-      <ServiceFilter filter={filter} setFilter={setFilter} />
-      <ServiceCards services={services} />
-    </Stack>
+    <Container className="my-3">
+      <Stack gap={3}>
+        <Search setSearchQuery={setSearchQuery} />
+        <ServiceFilter filter={filter} setFilter={setFilter} />
+        <ServiceCards services={services} />
+      </Stack>
+    </Container>
   );
 };
 

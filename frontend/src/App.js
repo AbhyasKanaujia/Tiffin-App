@@ -17,14 +17,12 @@ function App() {
     <div className="App d-flex flex-column min-vh-100">
       <Router>
         <Header user={user} />
-        <Container className="my-3">
-          <Routes>
-            <Route path="/" element={<HomeScreen />} />
-            <Route path="/search" element={<SearchScreen />} />
-            <Route path="/profile" element={<ProfileScreen />} />
-            <Route path="/login" element={<LoginScreen />} />
-          </Routes>
-        </Container>
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/search" element={<SearchScreen />} />
+          <Route path="/profile" element={<ProfileScreen />} />
+          <Route path="/login" element={<LoginScreen />} />
+        </Routes>
         <Footer />
       </Router>
     </div>

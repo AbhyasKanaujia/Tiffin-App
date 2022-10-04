@@ -24,3 +24,9 @@
 - Create Profile Page
 - Only Logged in user visit the profile page
 - Navbar collapse on click
+
+# Icons Attribution
+
+- Bicycle Icon: <a href="https://www.flaticon.com/free-icons/postman" title="postman icons">Postman icons created by photo3idea_studio - Flaticon</a>
+- Nutrition Icon: <a href="https://www.flaticon.com/free-icons/nutrition" title="nutrition icons">Nutrition icons created by Flat Icons - Flaticon</a>
+- Wallet Icon: <a href="https://www.flaticon.com/free-icons/wallet" title="wallet icons">Wallet icons created by Freepik - Flaticon</a>
