@@ -7,8 +7,10 @@ import Footer from "./components/Footer";
 
 import HomeScreen from "./screens/HomeScreen";
 import SearchScreen from "./screens/SearchScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 import user from "./data/user";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/search" element={<SearchScreen />} />
+            <Route path="/profile" element={<ProfileScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
           </Routes>
         </Container>
         <Footer />
