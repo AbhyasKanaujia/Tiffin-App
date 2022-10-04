@@ -1,4 +1,5 @@
 import React from "react";
+import "./LandingPage.css";
 
 import { Link } from "react-router-dom";
 
@@ -18,24 +19,15 @@ const LandingPage = () => {
     <>
       {/* Banner */}
       <Container
+        className="backgroundImageContainer"
         fluid
-        style={{
-          backgroundImage: `url(${background})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          height: "100vh",
-        }}
+        style={{ backgroundImage: `url(${background})` }}
       >
-        <Container style={{ height: "100%" }}>
-          <Row
-            className="justify-content-center align-items-center"
-            style={{ height: "100%" }}
-          >
+        <Container className="callToActionContainer">
+          <Row>
             <Col
+              className="callToActionCard text-center text-white p-3 rounded"
               xs="auto"
-              className="text-center text-white p-3"
-              style={{ backgroundColor: "#8D6E63", borderRadius: "5px" }}
             >
               <h3>Healthy Hygenic and Homemade</h3>
               <h1 style={{ fontSize: "3.5rem" }}>Tiffin Service</h1>
@@ -51,45 +43,30 @@ const LandingPage = () => {
       <Container className="my-3">
         <Row xs={1} sm={3}>
           <Col>
-            <Stack>
-              <div className="d-flex justify-content-center">
-                <img src={bicycle} width="48px" />
+            <Stack className="feature">
+              <div className="featureIcon">
+                <img src={bicycle} />
               </div>
-              <h6 className="text-center">Timely Delivery</h6>
-              <p
-                className="text-center"
-                style={{ color: "grey", fontSize: "0.8rem" }}
-              >
-                Ontime deliver at your doorstep
-              </p>
+              <h6>Timely Delivery</h6>
+              <p>Ontime deliver at your doorstep</p>
             </Stack>
           </Col>
           <Col>
-            <Stack>
-              <div className="d-flex justify-content-center">
-                <img src={nutrition} width="48px" />
+            <Stack className="feature">
+              <div className="featureIcon">
+                <img src={nutrition} />
               </div>
-              <h6 className="text-center">Healhty Food</h6>
-              <p
-                className="text-center"
-                style={{ color: "grey", fontSize: "0.8rem" }}
-              >
-                Get homelike healthy and tasty food
-              </p>
+              <h6>Healhty Food</h6>
+              <p>Get homelike healthy and tasty food</p>
             </Stack>
           </Col>
           <Col>
-            <Stack>
-              <div className="d-flex justify-content-center">
-                <img src={wallet} width="48px" />
+            <Stack className="feature">
+              <div className="featureIcon">
+                <img src={wallet} />
               </div>
-              <h6 className="text-center">Great Price</h6>
-              <p
-                className="text-center"
-                style={{ color: "grey", fontSize: "0.8rem" }}
-              >
-                Find services with best prices
-              </p>
+              <h6>Great Price</h6>
+              <p>Find services with best prices</p>
             </Stack>
           </Col>
         </Row>

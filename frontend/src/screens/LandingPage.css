@@ -1,0 +1,35 @@
+.backgroundImageContainer {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.callToActionContainer {
+  display: grid;
+  height: 100%;
+  place-items: center;
+}
+
+.callToActionCard {
+  background-color: var(--brown);
+}
+
+.featureIcon {
+  display: flex;
+  justify-content: center;
+}
+
+.featureIcon img {
+  width: 48px;
+}
+
+.feature h6,
+.feature p {
+  text-align: center;
+}
+
+.feature p {
+  color: grey;
+  font-size: 0.8rem;
+}
